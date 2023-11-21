@@ -31,7 +31,6 @@ class ReadUserTest extends TestCase
         $response->assertStatus(200)
             ->assertJson([
                 'id' => $user->id,
-                // ... otros campos que esperas encontrar en la respuesta
             ]);
     }
 }
