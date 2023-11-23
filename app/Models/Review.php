@@ -20,7 +20,9 @@ class Review extends Model
      */
     protected $fillable = [
         'comment',
-        'assessment'
+        'assessment',
+        'user_id',
+        'product_id'
     ];
 
     public function userRelation() {

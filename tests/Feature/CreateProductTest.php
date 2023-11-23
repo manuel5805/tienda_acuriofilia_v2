@@ -24,7 +24,6 @@ class CreateProductTest extends TestCase
             'description' => 'Descripción de prueba',
             'price' => 10.99,
             'product_image' => 'imagen_de_prueba.jpg',
-            // Completa con otros datos necesarios para la creación de un producto
         ];
     
         $response = $this->postJson('/api/products/store', $productData);

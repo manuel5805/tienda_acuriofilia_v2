@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('category');
             $table->text('description');
-            $table->string('img_inquiry');
+            $table->string('img_inquiry')->nullable();
             $table->string('state');
             $table->timestamps();
 

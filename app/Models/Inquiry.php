@@ -19,6 +19,7 @@ class Inquiry extends Model
     protected $fillable = [
         'state',
         'title',
+        'user_id',
         'category',
         'description',
         'img_inquiry'

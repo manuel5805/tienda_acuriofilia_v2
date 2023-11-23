@@ -6,10 +6,18 @@ use App\Http\Controllers\ReadUserController;
 use App\Http\Controllers\CreateUserController;
 use App\Http\Controllers\DeleteUserController;
 use App\Http\Controllers\UpdateUserController;
+use App\Http\Controllers\ReadInquiryController;
 use App\Http\Controllers\ReadProductController;
+use App\Http\Controllers\UserReviewsController;
+use App\Http\Controllers\CreateReviewController;
+use App\Http\Controllers\UpdateReviewController;
+use App\Http\Controllers\UserInquirysController;
+use App\Http\Controllers\CreateInquiryController;
 use App\Http\Controllers\CreateProductController;
+use App\Http\Controllers\DeleteInquiryController;
 use App\Http\Controllers\DeleteProductController;
 use App\Http\Controllers\UpdateProductController;
+use App\Http\Controllers\ProductReviewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +47,19 @@ Route::post('/products/store', [CreateProductController::class, 'store']);
 Route::put('/products/update/{product}', [UpdateProductController::class, 'update']);
 Route::delete('/products/delete/{product}', [DeleteProductController::class, 'destroy']);
 Route::get('/products/read/{product}', [ReadProductController::class, 'show']);
+
+//Reviews
+Route::post('/reviews/store', [CreateReviewController::class, 'store']);
+Route::put('/reviews/update/{review}', [UpdateReviewController::class, 'update']);
+Route::get('/reviews/user/{userId}', [UserReviewsController::class, 'showUserReviews']);
+Route::get('/reviews/product/{productId}', [ProductReviewsController::class, 'showProductReviews']);
+
+//Inquiries
+
+Route::post('/inquiries/store', [CreateInquiryController::class, 'store']);
+Route::get('/inquiries/read/{inquiry}',[ReadInquiryController::class, 'show']);
+Route::get('/inquiries/user/{userId}',[UserInquirysController::class, 'showUserInquirys']);
+Route::delete('/inquiries/delete/{inquiry}',[DeleteInquiryController::class, 'destroy']);
+
+
+//Comments
