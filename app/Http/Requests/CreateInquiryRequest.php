@@ -26,7 +26,7 @@ class CreateInquiryRequest extends FormRequest
             'title' => 'required|string',
             'category' => 'required|string',
             'description' => 'required|string',
-            'img_inquiry' => 'string',
+            'img_inquiry' => 'image|mimes:jpeg,png,jpg,gif,svg',
             'state' => 'required|string'
         ];
     }

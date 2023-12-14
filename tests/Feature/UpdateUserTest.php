@@ -28,7 +28,8 @@ class UpdateUserTest extends TestCase
 
         $updatedUserData = [
             'name' => 'Jane Doe',
-            'email' => 'jane@example.com',
+            'email' => '',
+            'address' => ' ',
         ];
 
         $response = $this->putJson("/api/users/update/{$user->id}", $updatedUserData);
@@ -38,7 +39,8 @@ class UpdateUserTest extends TestCase
         $this->assertDatabaseHas('users', [
             'id' => $user->id,
             'name' => 'Jane Doe',
-            'email' => 'jane@example.com',
+            'email' => 'john@example.com',
+            'address' => 'new address',
         ]);
     }
 }

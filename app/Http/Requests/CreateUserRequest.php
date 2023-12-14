@@ -29,7 +29,7 @@ class CreateUserRequest extends FormRequest
             'password' => 'required|string|min:6',
             'role' => 'required|string',
             'address' => 'string',
-            'profile_image' => 'string'
+            'profile_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             
         ];
     }

@@ -11,11 +11,20 @@ class CreateUserController extends Controller
 
     public function store(CreateUserRequest  $request)
     {
+          $userData = $request->validated();
 
-        $userData = $request->validated();
-        $user = User::create($userData);
-
-        return response()->json($user, 201);
+         
+          if ($request->hasFile('profile_image')) {
+            $image = $request->file('profile_image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path('images'), $imageName);
+            $userData['profile_image'] = 'images/' . $imageName;
+        }
+    
+  
+          $user = User::create($userData);
+  
+          return response()->json($user, 201);
     }
 
 

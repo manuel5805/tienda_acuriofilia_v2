@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use App\Models\User;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -25,12 +26,15 @@ class CreateInquiryTest extends TestCase
             'password' => 'password123',
         ]);
 
+        $file = UploadedFile::fake()->image('inquiry_image.jpg');
+    
+
         $inquiryData = [
             'user_id' => $user->id,
             'title' => 'prueba titulo',
             'category' => 'prueba categoria',
             'description' => 'prueba de descripcion',
-            'img_inquiry' => 'inquiry.jpg',
+            'img_inquiry' => $file,
             'state' => 'abierto'
         ];
 
